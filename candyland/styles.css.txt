@@ -1,0 +1,15 @@
+/* Add CSS styling for your game board here */
+.game-board {
+    font-size: 24px;
+    text-align: center;
+    margin: 20px auto;
+    background-color: #f0f0f0; /* Background color for the game board */
+    padding: 20px;
+}
+
+.player {
+    font-size: 36px;
+    color: red; /* You can change the player color */
+}
+
+/* Additional CSS styling can be added here */

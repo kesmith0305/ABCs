@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Candy Land Game</title>
+    <style>
+        /* Add CSS styling for your game board here */
+        .game-board {
+            font-size: 24px;
+            text-align: center;
+            margin: 20px auto;
+        }
+        .player {
+            font-size: 36px;
+            color: red; /* You can change the player color */
+        }
+    </style>
+</head>
+<body>
+    <h1>Candy Land Game</h1>
+    <div class="game-board" id="game-board">
+        <p>ABCD</p>
+        <p>====</p>
+        <p>[  > ]</p>
+        <p>[ -> ]</p>
+        <p>[ -> ]</p>
+        <p>[ <- ]</p>
+    </div>
+    <p id="player-info">Player is at 'A'</p>
+
+    <script>
+        // JavaScript code for your Candy Land-like game
+        let currentPlayer = 'A';
+
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'ArrowRight') {
+                moveRight();
+            } else if (event.key === 'ArrowLeft') {
+                moveLeft();
+            }
+        });
+
+        function moveRight() {
+            if (currentPlayer === 'A') {
+                currentPlayer = 'B';
+            } else if (currentPlayer === 'B') {
+                currentPlayer = 'C';
+            } else if (currentPlayer === 'C') {
+                currentPlayer = 'D';
+            }
+            updatePlayerInfo();
+        }
+
+        function moveLeft() {
+            if (currentPlayer === 'D') {
+                currentPlayer = 'C';
+            } else if (currentPlayer === 'C') {
+                currentPlayer = 'B';
+            } else if (currentPlayer === 'B') {
+                currentPlayer = 'A';
+            }
+            updatePlayerInfo();
+        }
+
+        function updatePlayerInfo() {
+            document.getElementById('player-info').textContent = `Player is at '${currentPlayer}'`;
+        }
+    </script>
+</body>
+</html>
